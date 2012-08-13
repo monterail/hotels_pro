@@ -1,5 +1,13 @@
+require "hotels_pro/configuration"
 require "hotels_pro/version"
 
 module HotelsPro
-  # Your code goes here...
+  class << self
+    attr_accessor :configuration
+
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration)
+    end
+  end
 end
