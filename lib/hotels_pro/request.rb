@@ -28,7 +28,8 @@ module HotelsPro
     end
 
     def perform
-      Typhoeus::Request.get(uri)
+      response = Typhoeus::Request.get(uri)
+      Response.new(response.body)
     end
   end
 end

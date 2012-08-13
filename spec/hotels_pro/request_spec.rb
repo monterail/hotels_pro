@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe HotelsPro::Request do
+  include RequestHelper
+
   before(:each) do
     @request = HotelsPro::Request.new("getAvailableHotel", :param1 => "value1", :param2 => "value2", :param3 => nil)
   end
@@ -32,5 +34,12 @@ describe HotelsPro::Request do
 
   it "should build uri from api url and query" do
     @request.uri.should == "#{HotelsPro.configuration.api_url}?#{@request.query}"
+  end
+
+  it "should return response" do
+    stub_url(/getAvailableHotel/, stub_response("get_available_hotel"))
+
+    response = @request.perform
+    response.should be_an_instance_of HotelsPro::Response
   end
 end
