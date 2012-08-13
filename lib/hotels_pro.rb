@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'active_support'
+require 'typhoeus'
 require 'virtus'
 
 require "hotels_pro/api"

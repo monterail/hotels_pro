@@ -3,7 +3,7 @@ module HotelsPro
     attr_accessor :api_method, :params
 
     def initialize(api_method, params={})
-      @api_method = api_method
+      @api_method = api_method.camelize(false)
       @params = params
     end
 
@@ -28,6 +28,7 @@ module HotelsPro
     end
 
     def perform
+      Typhoeus::Request.get(uri)
     end
   end
 end

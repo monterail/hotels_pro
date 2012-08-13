@@ -3,7 +3,8 @@ module HotelsPro
     include Virtus
 
     def perform
-      request = Request.new(self.class.name, attributes)
+      api_method = self.class.name.to_s.demodulize
+      request = Request.new(api_method, attributes)
       request.perform
     end
   end
