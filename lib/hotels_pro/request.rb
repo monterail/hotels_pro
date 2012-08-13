@@ -1,13 +1,15 @@
 module HotelsPro
   class Request
-    attr_accessor :params
+    attr_accessor :api_method, :params
 
-    def initialize(params={})
+    def initialize(api_method, params={})
+      @api_method = api_method
       @params = params
     end
 
     def query
       params = @params.dup
+      params["method"] = api_method
       params["apiKey"] = HotelsPro.configuration.api_key
 
       query = params.inject([]) do |arr, (k, v)|
