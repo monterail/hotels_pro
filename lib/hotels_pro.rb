@@ -5,7 +5,7 @@ require 'json'
 require 'typhoeus'
 require 'virtus'
 
-require "hotels_pro/api"
+require "hotels_pro/api/api_method"
 require "hotels_pro/api/get_available_hotel"
 require "hotels_pro/configuration"
 require "hotels_pro/request"
