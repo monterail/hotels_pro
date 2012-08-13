@@ -14,6 +14,7 @@ module HotelsPro
 
       query = params.inject([]) do |arr, (k, v)|
         unless v.nil?
+          k = k.to_s.camelize(false)
           arr << "#{k}=#{v}"
         end
         arr

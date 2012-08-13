@@ -22,6 +22,14 @@ describe HotelsPro::Request do
     @request.query.should_not =~ /param3/
   end
 
+  it "should camelize keys in query" do
+    request = HotelsPro::Request.new("getAvailableHotel", :param_one => "value1", :param_two => "value2")
+    query = request.query
+
+    query.should =~ /paramOne=value1/
+    query.should =~ /paramTwo=value2/
+  end
+
   it "should build uri from api url and query" do
     @request.uri.should == "#{HotelsPro.configuration.api_url}?#{@request.query}"
   end
