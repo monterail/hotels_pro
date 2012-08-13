@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = HotelsPro::VERSION
 
+  gem.add_dependency "activesupport"
   gem.add_dependency "virtus"
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "ZenTest"

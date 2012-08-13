@@ -13,7 +13,9 @@ module HotelsPro
       params["apiKey"] = HotelsPro.configuration.api_key
 
       query = params.inject([]) do |arr, (k, v)|
-        arr << "#{k}=#{v}"
+        unless v.nil?
+          arr << "#{k}=#{v}"
+        end
         arr
       end
 
