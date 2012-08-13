@@ -1,4 +1,5 @@
 require "hotels_pro/configuration"
+require "hotels_pro/request"
 require "hotels_pro/version"
 
 module HotelsPro
