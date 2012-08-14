@@ -1,9 +1,13 @@
+require "hotels_pro/underscorer"
+
 module HotelsPro
   class Response
+    include Underscorer
+
     attr_reader :status, :error_message, :data
 
     def initialize(body)
-      @data = JSON.parse(body)
+      @data = underscore(JSON.parse(body))
       detect_error
 
       @status = error_message.nil? ? :success : :error

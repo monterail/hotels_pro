@@ -7,9 +7,9 @@ describe HotelsPro::Response do
     response.error_message.should == "error message"
   end
 
-  it "should return parse json response" do
-    response = HotelsPro::Response.new('{"param1": "value1"}')
+  it "should parse and underscore json response" do
+    response = HotelsPro::Response.new('{"paramOne": "value1"}')
     response.status.should == :success
-    response.data.should == { "param1" => "value1" }
+    response.data.should == { "param_one" => "value1" }
   end
 end
