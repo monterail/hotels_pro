@@ -6,7 +6,7 @@ module HotelsPro
       @data = JSON.parse(body)
       detect_error
 
-      @status = error? ? :error : :success
+      @status = error_message.nil? ? :success : :error
     end
 
     # HotelsPro API returns status 200 OK for errors and includes error message in body as:
@@ -18,7 +18,11 @@ module HotelsPro
     end
 
     def error?
-      !error_message.nil?
+      @status == :error
+    end
+
+    def success?
+      @status == :success
     end
   end
 end
