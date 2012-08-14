@@ -21,7 +21,7 @@ describe HotelsPro::Request do
   end
 
   it "should build uri from api url and query" do
-    @request.uri.should == "#{HotelsPro.configuration.api_url}?#{@request.query}"
+    @request.uri.should == "#{HotelsPro.configuration.api_url}#{@request.query}"
   end
 
   it "should return response" do

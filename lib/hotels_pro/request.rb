@@ -16,7 +16,7 @@ module HotelsPro
     end
 
     def uri
-      "#{HotelsPro.configuration.api_url}?#{query}"
+      "#{HotelsPro.configuration.api_url}#{query}"
     end
 
     def perform
