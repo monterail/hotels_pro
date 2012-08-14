@@ -12,12 +12,7 @@ module HotelsPro
       params["method"] = api_method
       params["apiKey"] = HotelsPro.configuration.api_key
 
-      query = params.inject([]) do |arr, (k, v)|
-        arr << "#{k}=#{v}"
-        arr
-      end
-
-      query.join("&")
+      Query.new(params).to_s
     end
 
     def uri
