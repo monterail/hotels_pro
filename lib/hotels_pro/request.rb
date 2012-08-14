@@ -25,6 +25,7 @@ module HotelsPro
     end
 
     def perform
+      HotelsPro.log("Request to: #{uri}")
       response = Typhoeus::Request.get(uri)
       Response.new(response.body)
     end

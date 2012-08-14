@@ -1,6 +1,6 @@
 module HotelsPro
   class Configuration
-    attr_accessor :environment, :api_key
+    attr_accessor :environment, :api_key, :logger
 
     def initialize
       @environment = "test"

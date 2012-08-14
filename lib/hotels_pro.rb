@@ -24,5 +24,11 @@ module HotelsPro
     def configure
       yield(configuration)
     end
+
+    def log(message)
+      if configuration.logger
+        configuration.logger.info("[HotelsPro] #{message}")
+      end
+    end
   end
 end
