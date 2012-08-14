@@ -3,7 +3,7 @@ module HotelsPro
     class ApiMethod
       def perform
         api_method = self.class.name.to_s.demodulize
-        request = Request.new(api_method, attributes)
+        request = Request.new(api_method, to_api_params)
         request.perform
       end
     end
