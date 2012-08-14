@@ -17,6 +17,7 @@ require "hotels_pro/configuration"
 require "hotels_pro/query"
 require "hotels_pro/request"
 require "hotels_pro/response"
+require "hotels_pro/underscorer"
 require "hotels_pro/version"
 
 module HotelsPro
