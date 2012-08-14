@@ -8,6 +8,7 @@ require 'virtus'
 require "hotels_pro/api/api_method"
 require "hotels_pro/api/api_params"
 require "hotels_pro/api/pax"
+require "hotels_pro/api/pax_array"
 require "hotels_pro/api/get_available_hotel"
 require "hotels_pro/configuration"
 require "hotels_pro/request"

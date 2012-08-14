@@ -10,8 +10,8 @@ module HotelsPro
       attribute :currency, String, :default => "EUR"
       attribute :client_nationality, String
       attribute :on_request, Boolean, :default => true
-      attribute :rooms, Array[Pax]
-      attribute :filters, Array
+      attribute :rooms, Array[PaxArray], :default => []
+      attribute :filters, Array, :default => []
     end
   end
 end
