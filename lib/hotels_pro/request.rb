@@ -13,10 +13,7 @@ module HotelsPro
       params["apiKey"] = HotelsPro.configuration.api_key
 
       query = params.inject([]) do |arr, (k, v)|
-        unless v.nil?
-          k = k.to_s.camelize(false)
-          arr << "#{k}=#{v}"
-        end
+        arr << "#{k}=#{v}"
         arr
       end
 

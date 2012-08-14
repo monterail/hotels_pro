@@ -1,6 +1,7 @@
 module HotelsPro
   module Api
     class Pax
+      include ApiParams
       include Virtus
 
       attribute :pax_type, String

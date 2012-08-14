@@ -4,11 +4,11 @@ describe HotelsPro::Request do
   include RequestHelper
 
   before(:each) do
-    @request = HotelsPro::Request.new("getAvailableHotel", :param1 => "value1", :param2 => "value2", :param3 => nil)
+    @request = HotelsPro::Request.new("getAvailableHotel", :param1 => "value1", :param2 => "value2")
   end
 
   it "should be defined with params hash" do
-    @request.params.should == { :param1 => "value1", :param2 => "value2", :param3 => nil }
+    @request.params.should == { :param1 => "value1", :param2 => "value2" }
   end
 
   it "should build query from params, api method and api key" do
@@ -18,18 +18,6 @@ describe HotelsPro::Request do
     query.should =~ /param2=value2/
     query.should =~ /method=getAvailableHotel/
     query.should =~ /apiKey=123/
-  end
-
-  it "should not include params with nil values in query" do
-    @request.query.should_not =~ /param3/
-  end
-
-  it "should camelize keys in query" do
-    request = HotelsPro::Request.new("getAvailableHotel", :param_one => "value1", :param_two => "value2")
-    query = request.query
-
-    query.should =~ /paramOne=value1/
-    query.should =~ /paramTwo=value2/
   end
 
   it "should build uri from api url and query" do
