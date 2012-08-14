@@ -15,6 +15,15 @@ module HotelsPro
         attribute :on_request, Boolean, :default => true
         attribute :rooms, Array[Api::Elements::PaxArray], :default => []
         attribute :filters, Array, :default => []
+
+        class Result
+          include Virtus
+
+          attribute :response_id, Integer
+          attribute :search_id, String
+          attribute :total_found, Integer
+          attribute :available_hotels, Array[Api::Elements::Hotel]
+        end
       end
     end
   end
