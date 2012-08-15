@@ -36,13 +36,13 @@ Since this is a really simple wrapper for HotelsPro API it only let's you build 
       :check_out => Date.parse("2012-08-21"),
       :rooms => [
         HotelsPro::Api::Elements::PaxArray.new(
-          :elements => [
+          :paxes => [
             HotelsPro::Api::Elements::Pax.new(:pax_type => "Adult"),
             HotelsPro::Api::Elements::Pax.new(:pax_type => "Adult")
           ]
         ),
         HotelsPro::Api::Elements::PaxArray.new(
-          :elements => [
+          :paxes => [
             HotelsPro::Api::Elements::Pax.new(:pax_type => "Adult"),
             HotelsPro::Api::Elements::Pax.new(:pax_type => "Child", :age => 10)
           ]

@@ -6,10 +6,10 @@ module HotelsPro
       class PaxArray
         include Virtus
 
-        attribute :elements, Array[Pax], :default => []
+        attribute :paxes, Array[Pax], :default => []
 
         def to_api_params
-          elements.map(&:to_api_params)
+          paxes.map(&:to_api_params)
         end
       end
     end

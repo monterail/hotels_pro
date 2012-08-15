@@ -6,8 +6,8 @@ describe HotelsPro::Api::Elements::PaxArray do
     pax1 = HotelsPro::Api::Elements::Pax.new
     pax2 = HotelsPro::Api::Elements::Pax.new
 
-    pax_arr.elements << pax1
-    pax_arr.elements << pax2
+    pax_arr.paxes << pax1
+    pax_arr.paxes << pax2
 
     pax_arr.to_api_params.should == [pax1.to_api_params, pax2.to_api_params]
   end
