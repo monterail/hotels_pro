@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe HotelsPro::Api::Methods::GetAvailableHotel do
+  include RequestHelper
+
   it "should build correct api params hash" do
     method = HotelsPro::Api::Methods::GetAvailableHotel.new(
       :destination_id => "XXX",
@@ -94,5 +96,38 @@ describe HotelsPro::Api::Methods::GetAvailableHotel do
         :search_id => "SZ-91588250"
       )]
     )
+  end
+
+  it "should return result when performed" do
+    stub_url(/getAvailableHotel/, stub_response("get_available_hotel"))
+
+    method = HotelsPro::Api::Methods::GetAvailableHotel.new(
+      :destination_id => "XXX",
+      :client_nationality => "US",
+      :currency => "EUR",
+      :check_in => Date.parse("2012-08-14"),
+      :check_out => Date.parse("2012-08-21"),
+      :rooms => [
+        HotelsPro::Api::Elements::PaxArray.new(
+          :paxes => [
+            HotelsPro::Api::Elements::Pax.new(:pax_type => "Adult"),
+            HotelsPro::Api::Elements::Pax.new(:pax_type => "Adult")
+          ]
+        ),
+        HotelsPro::Api::Elements::PaxArray.new(
+          :paxes => [
+            HotelsPro::Api::Elements::Pax.new(:pax_type => "Adult"),
+            HotelsPro::Api::Elements::Pax.new(:pax_type => "Child", :age => 10)
+          ]
+        )
+      ]
+    )
+
+    result = method.perform
+
+    result.should be_instance_of HotelsPro::Api::Methods::GetAvailableHotel::Result
+    result.response_id.should == 4214740
+    result.total_found.should == 2
+    result.search_id.should == "SZ-91588250"
   end
 end
