@@ -3,7 +3,7 @@ module HotelsPro
     attr_accessor :api_method, :params
 
     def initialize(api_method, params={})
-      @api_method = api_method.camelize(false)
+      @api_method = api_method.camelize(:lower)
       @params = params
     end
 

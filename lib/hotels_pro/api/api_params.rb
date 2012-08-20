@@ -13,7 +13,7 @@ module HotelsPro
       end
 
       def api_param_name(attribute)
-        attribute.to_s.camelize(false)
+        attribute.to_s.camelize(:lower)
       end
 
       def api_param_value(value)
