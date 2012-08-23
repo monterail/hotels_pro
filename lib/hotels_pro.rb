@@ -36,5 +36,9 @@ module HotelsPro
         configuration.logger.info("[HotelsPro] #{message}")
       end
     end
+
+    def get_available_hotel(options={})
+      HotelsPro::Api::Methods::GetAvailableHotel.new(options).perform
+    end
   end
 end
