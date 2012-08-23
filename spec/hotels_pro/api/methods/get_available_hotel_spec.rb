@@ -23,6 +23,10 @@ describe HotelsPro::Api::Methods::GetAvailableHotel do
             HotelsPro::Api::Elements::Pax.new(:pax_type => "Child", :age => 10)
           ]
         )
+      ],
+      :filters => [
+        HotelsPro::Api::Elements::Filter.new(:filter_type => "hotelCode", :filter_value => "123"),
+        HotelsPro::Api::Elements::Filter.new(:filter_type => "limit", :filter_value => "10")
       ]
     )
 
@@ -35,6 +39,10 @@ describe HotelsPro::Api::Methods::GetAvailableHotel do
       "rooms" => [
         [{ "paxType" => "Adult" }, { "paxType" => "Adult" }],
         [{ "paxType" => "Adult" }, { "paxType" => "Child", "age" => "10" }]
+      ],
+      "filters" => [
+        { "filterType" => "hotelCode", "filterValue" => "123" },
+        { "filterType" => "limit", "filterValue" => "10" }
       ],
       "onRequest" => "true"
     }

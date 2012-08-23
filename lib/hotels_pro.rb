@@ -8,6 +8,7 @@ require 'virtus'
 require "hotels_pro/api/api_method"
 require "hotels_pro/api/api_params"
 require "hotels_pro/api/elements/daily_rate"
+require "hotels_pro/api/elements/filter"
 require "hotels_pro/api/elements/room_response"
 require "hotels_pro/api/elements/hotel"
 require "hotels_pro/api/elements/pax"

@@ -14,7 +14,7 @@ module HotelsPro
         attribute :client_nationality, String
         attribute :on_request, Boolean, :default => true
         attribute :rooms, Array[Api::Elements::PaxArray], :default => []
-        attribute :filters, Array, :default => []
+        attribute :filters, Array[Api::Elements::Filter], :default => []
 
         class Result
           include Virtus
