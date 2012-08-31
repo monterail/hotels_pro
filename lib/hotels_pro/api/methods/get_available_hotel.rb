@@ -4,7 +4,6 @@ module HotelsPro
   module Api
     module Methods
       class GetAvailableHotel < ApiMethod
-        include ApiParams
         include Virtus
 
         attribute :destination_id, String

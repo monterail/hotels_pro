@@ -1,6 +1,8 @@
 module HotelsPro
   module Api
     class ApiMethod
+      include ApiParams
+
       def perform
         api_method = self.class.name.to_s.demodulize
         request = Request.new(api_method, to_api_params)
