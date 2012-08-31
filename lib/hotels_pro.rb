@@ -41,4 +41,7 @@ module HotelsPro
       HotelsPro::Api::Methods::GetAvailableHotel.new(options).perform
     end
   end
+
+  class ErrorResponse < ::StandardError
+  end
 end
