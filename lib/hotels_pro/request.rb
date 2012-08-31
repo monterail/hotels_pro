@@ -20,9 +20,11 @@ module HotelsPro
     end
 
     def perform
-      HotelsPro.log("Request to: #{uri}")
-      response = Typhoeus::Request.get(uri)
-      Response.new(response.body)
+      HotelsPro.log("Request URL: #{uri}")
+      api_response = Typhoeus::Request.get(uri)
+      response = Response.new(api_response.body)
+      HotelsPro.log("Response: #{response.inspect}")
+      response
     end
   end
 end
