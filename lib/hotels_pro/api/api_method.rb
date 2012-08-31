@@ -2,6 +2,11 @@ module HotelsPro
   module Api
     class ApiMethod
       include ApiParams
+      include Virtus
+
+      class Result
+        include Virtus
+      end
 
       def perform
         api_method = self.class.name.to_s.demodulize

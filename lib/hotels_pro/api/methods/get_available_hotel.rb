@@ -4,7 +4,6 @@ module HotelsPro
   module Api
     module Methods
       class GetAvailableHotel < ApiMethod
-        include Virtus
 
         attribute :destination_id, String
         attribute :check_in, Date
@@ -15,9 +14,7 @@ module HotelsPro
         attribute :rooms, Array[Api::Elements::PaxArray], :default => []
         attribute :filters, Array[Api::Elements::Filter], :default => []
 
-        class Result
-          include Virtus
-
+        class Result < ApiMethod::Result
           attribute :response_id, Integer
           attribute :search_id, String
           attribute :total_found, Integer
