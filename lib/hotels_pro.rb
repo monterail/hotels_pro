@@ -44,4 +44,7 @@ module HotelsPro
 
   class ErrorResponse < ::StandardError
   end
+
+  class RemoteError < ::StandardError
+  end
 end

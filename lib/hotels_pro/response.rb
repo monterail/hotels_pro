@@ -6,8 +6,8 @@ module HotelsPro
 
     attr_reader :status, :error_message, :data
 
-    def initialize(body)
-      @data = underscore(JSON.parse(body))
+    def initialize(json)
+      @data = underscore(body(json))
       detect_error
 
       @status = error_message.nil? ? :success : :error
@@ -27,6 +27,12 @@ module HotelsPro
 
     def success?
       @status == :success
+    end
+
+    def body(json)
+      JSON.parse(json)
+    rescue JSON::ParserError
+      raise RemoteError.new("Remote API down.")
     end
   end
 end

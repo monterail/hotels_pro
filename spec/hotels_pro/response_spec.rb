@@ -12,4 +12,8 @@ describe HotelsPro::Response do
     response.status.should == :success
     response.data.should == { "param_one" => "value1" }
   end
+
+  it "should raise RemoteError on non-JSON response" do
+    lambda { HotelsPro::Response.new('non-json') }.should raise_error(HotelsPro::RemoteError)
+  end
 end
