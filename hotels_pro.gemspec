@@ -5,6 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Michał Szajbe"]
   gem.email         = ["michal.szajbe@gmail.com"]
   gem.description   = %q{HotelsPro API wrapper}
+  gem.summary       = %q{HotelsPro API wrapper}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
