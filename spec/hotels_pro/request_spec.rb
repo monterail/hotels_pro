@@ -30,4 +30,44 @@ describe HotelsPro::Request do
     response = @request.perform
     response.should be_an_instance_of HotelsPro::Response
   end
+
+  context "when only_stubs is true" do
+    before do
+      @only_stubs = HotelsPro.configuration.only_stubs
+      HotelsPro.configure do |config|
+        config.only_stubs = true
+      end
+    end
+
+    after do
+      HotelsPro.configure do |config|
+        config.only_stubs = @only_stubs
+      end
+    end
+
+    it "should raise exception when performing unstubbed request" do
+      lambda{ @request.perform }.should raise_exception(HotelsPro::UnstubbedRequest)
+    end
+  end
+
+  context "when only_stubs is false" do
+    before do
+      @only_stubs = HotelsPro.configuration.only_stubs
+      HotelsPro.configure do |config|
+        config.only_stubs = false
+      end
+    end
+
+    after do
+      HotelsPro.configure do |config|
+        config.only_stubs = @only_stubs
+      end
+    end
+
+    it "should not raise exception when performing unstubbed request" do
+      # Stub it with Typhoeus
+      Typhoeus::Hydra.hydra.stub(:get, @request.uri).and_return(Typhoeus::Response.new(:status => 200, :body => "''", :headers => '', :time => 0.1))
+      lambda{ @request.perform }.should_not raise_exception
+    end
+  end
 end

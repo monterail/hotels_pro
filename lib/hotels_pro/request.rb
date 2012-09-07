@@ -22,11 +22,22 @@ module HotelsPro
     def perform
       HotelsPro.log("Request URL: #{uri}")
 
-      api_response = HotelsPro::Stubs.match(self) || Typhoeus::Request.get(uri).body
-      response = Response.new(api_response)
+      response = Response.new(stubbed_response || real_response)
 
       HotelsPro.log("Response: #{response.inspect}")
       response
+    end
+
+    def stubbed_response
+      response = HotelsPro::Stubs.match(self)
+      if !response && HotelsPro.configuration.only_stubs
+        raise HotelsPro::UnstubbedRequest.new("Unstubbed request to URL: #{uri}")
+      end
+      response
+    end
+
+    def real_response
+      Typhoeus::Request.get(uri).body
     end
   end
 end

@@ -49,4 +49,7 @@ module HotelsPro
 
   class RemoteError < ::StandardError
   end
+
+  class UnstubbedRequest < ::StandardError
+  end
 end
