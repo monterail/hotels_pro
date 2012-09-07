@@ -12,7 +12,7 @@ module HotelsPro
         response = request.perform
 
         if response.error?
-          raise ErrorResponse.new(response.error_message)
+          raise response.error
         else
           "#{self.class.name}::Result".constantize.new(response.data)
         end

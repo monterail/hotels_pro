@@ -4,7 +4,7 @@ describe HotelsPro::Api::ApiMethod do
   let(:api_method) { HotelsPro::Api::ApiMethod.new }
 
   it "should raise exception on error response" do
-    response = stub(:error? => true, :error_message => "Error occured.")
+    response = stub(:error? => true, :error => HotelsPro::ErrorResponse.new("Error occured."))
     request  = stub(:perform => response)
 
     api_method.stub(:request => request)
