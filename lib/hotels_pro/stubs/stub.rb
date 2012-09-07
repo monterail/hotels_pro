@@ -1,16 +1,22 @@
 module HotelsPro
   module Stubs
     class Stub
-      attr_reader :response
-
-      def initialize(api_method, matcher, response)
+      def initialize(api_method, matcher=nil)
         @api_method = api_method
         @matcher = matcher
-        @response = response
+      end
+
+      def response(resp=nil)
+        if resp
+          @response = resp
+          self
+        else
+          @response
+        end
       end
 
       def matches?(request)
-        request.api_method == @api_method && @matcher.call(request)
+        request.api_method == @api_method && (@matcher.nil? || @matcher.call(request))
       end
     end
   end

@@ -7,7 +7,7 @@ describe HotelsPro::Stubs do
 
   it "should add a stub" do
     matcher = lambda { |request| true }
-    HotelsPro::Stubs.get_available_hotel(matcher, "response")
+    HotelsPro::Stubs.get_available_hotel(matcher).response("response")
 
     HotelsPro::Stubs.stubs.size.should == 1
   end
@@ -15,7 +15,7 @@ describe HotelsPro::Stubs do
   context "with stub added" do
     before do
       matcher = lambda { |request| request.foo == "bar" }
-      HotelsPro::Stubs.get_available_hotel(matcher, "response")
+      HotelsPro::Stubs.get_available_hotel(matcher).response("response")
       HotelsPro::Stubs.stubs.size.should == 1
     end
 

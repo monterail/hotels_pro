@@ -107,7 +107,7 @@ describe HotelsPro::Api::Methods::GetAvailableHotel do
   end
 
   it "should return result when performed" do
-    stub_url(/getAvailableHotel/, stub_response("get_available_hotel"))
+    HotelsPro::Stubs.get_available_hotel.response(fixture("get_available_hotel"))
 
     method = HotelsPro::Api::Methods::GetAvailableHotel.new(
       :destination_id => "XXX",

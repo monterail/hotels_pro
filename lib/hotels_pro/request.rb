@@ -22,10 +22,8 @@ module HotelsPro
     def perform
       HotelsPro.log("Request URL: #{uri}")
 
-      unless response = HotelsPro::Stubs.match(self)
-        api_response = Typhoeus::Request.get(uri)
-        response = Response.new(api_response.body)
-      end
+      api_response = HotelsPro::Stubs.match(self) || Typhoeus::Request.get(uri).body
+      response = Response.new(api_response)
 
       HotelsPro.log("Response: #{response.inspect}")
       response

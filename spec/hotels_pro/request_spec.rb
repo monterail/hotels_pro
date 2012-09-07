@@ -25,7 +25,7 @@ describe HotelsPro::Request do
   end
 
   it "should return response" do
-    stub_url(/getAvailableHotel/, stub_response("get_available_hotel"))
+    HotelsPro::Stubs.get_available_hotel.response(fixture("get_available_hotel"))
 
     response = @request.perform
     response.should be_an_instance_of HotelsPro::Response

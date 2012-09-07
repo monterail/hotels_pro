@@ -9,9 +9,10 @@ module HotelsPro
         @stubs = []
       end
 
-      def get_available_hotel(matcher, response)
-        stub = Stub.new('getAvailableHotel', matcher, response)
+      def get_available_hotel(matcher=nil)
+        stub = Stub.new('getAvailableHotel', matcher)
         stubs << stub
+        stub
       end
 
       def match(request)
