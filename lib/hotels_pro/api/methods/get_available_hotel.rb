@@ -1,3 +1,5 @@
+require 'hotels_pro/api/elements/filter'
+require 'hotels_pro/api/elements/hotel'
 require 'hotels_pro/api/elements/pax_array'
 
 module HotelsPro
