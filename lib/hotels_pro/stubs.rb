@@ -15,6 +15,12 @@ module HotelsPro
         stub
       end
 
+      def allocate_hotel_code(matcher=nil)
+        stub = Stub.new('allocateHotelCode', matcher)
+        stubs << stub
+        stub
+      end
+
       def match(request)
         stub = stubs.find { |s| s.matches?(request) }
         stub.response if stub

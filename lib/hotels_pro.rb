@@ -13,6 +13,7 @@ require "hotels_pro/api/elements/room_response"
 require "hotels_pro/api/elements/hotel"
 require "hotels_pro/api/elements/pax"
 require "hotels_pro/api/elements/pax_array"
+require "hotels_pro/api/methods/allocate_hotel_code"
 require "hotels_pro/api/methods/get_available_hotel"
 require "hotels_pro/configuration"
 require "hotels_pro/query"
@@ -41,6 +42,10 @@ module HotelsPro
 
     def get_available_hotel(options={})
       HotelsPro::Api::Methods::GetAvailableHotel.new(options).perform
+    end
+
+    def allocate_hotel_code(options={})
+      HotelsPro::Api::Methods::AllocateHotelCode.new(options).perform
     end
   end
 
