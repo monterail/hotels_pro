@@ -51,6 +51,12 @@ module HotelsPro
         stub
       end
 
+      def get_balance(matcher=nil)
+        stub = Stub.new('getBalance', matcher)
+        stubs << stub
+        stub
+      end
+
       def match(request)
         stub = stubs.find { |s| s.matches?(request) }
         stub.response if stub
