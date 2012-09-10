@@ -27,6 +27,12 @@ module HotelsPro
         stub
       end
 
+      def get_hotel_booking_status(matcher=nil)
+        stub = Stub.new('getHotelBookingStatus', matcher)
+        stubs << stub
+        stub
+      end
+
       def match(request)
         stub = stubs.find { |s| s.matches?(request) }
         stub.response if stub
