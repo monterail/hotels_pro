@@ -45,6 +45,12 @@ module HotelsPro
         stub
       end
 
+      def amend_hotel_booking(matcher=nil)
+        stub = Stub.new('amendHotelBooking', matcher)
+        stubs << stub
+        stub
+      end
+
       def match(request)
         stub = stubs.find { |s| s.matches?(request) }
         stub.response if stub
