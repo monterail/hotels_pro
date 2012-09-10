@@ -22,10 +22,10 @@ module HotelsPro
     def perform
       HotelsPro.log("Request URL: #{uri}")
 
-      response = Response.new(stubbed_response || real_response)
+      raw_response = stubbed_response || real_response
+      HotelsPro.log("Response: #{raw_response}")
 
-      HotelsPro.log("Response: #{response.inspect}")
-      response
+      Response.new(raw_response)
     end
 
     def stubbed_response
