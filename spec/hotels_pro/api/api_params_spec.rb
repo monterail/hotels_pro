@@ -22,7 +22,7 @@ describe HotelsPro::Api::ApiParams do
       @object.api_param_value(child_object).should == { "paramOne" => "value1" }
     end
 
-    it "should try to call to_api_params on all elements of value if value is Enumerable" do
+    it "should try to call to_api_params on all elements of value if value is Array" do
       child_object1 = mock_api_object({ :param_one => "value1" })
       child_object2 = mock_api_object({ :param_two => "value2" })
 

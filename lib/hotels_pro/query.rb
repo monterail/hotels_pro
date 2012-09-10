@@ -21,7 +21,7 @@ module HotelsPro
           encode("#{key}[#{k}]", v)
         end
         chunks.join("&")
-      when Enumerable
+      when Array
         chunks = value.each_with_index.map do |v, i|
           encode("#{key}[#{i}]", v)
         end

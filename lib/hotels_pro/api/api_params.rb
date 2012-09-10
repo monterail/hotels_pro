@@ -17,7 +17,8 @@ module HotelsPro
       end
 
       def api_param_value(value)
-        if value.is_a?(Enumerable)
+        case value
+        when Array
           value.map{ |element| api_param_value(element) }
         else
           value.respond_to?(:to_api_params) ? value.to_api_params : value.to_s
