@@ -1,3 +1,5 @@
+require 'open-uri'
+
 module HotelsPro
   class Query
     def initialize(api_params)
@@ -25,7 +27,7 @@ module HotelsPro
         end
         chunks.join("&")
       else
-        "#{key}=#{value}"
+        "#{key}=#{URI::encode(value)}"
       end
     end
   end

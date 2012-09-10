@@ -35,4 +35,11 @@ describe HotelsPro::Query do
     query = HotelsPro::Query.new(params)
     query.to_s.should == "?a[0][0][b]=2&a[0][1][c]=3&a[1][0][d]=4&a[1][1][e]=5"
   end
+
+  it "should escape values" do
+    params = { "a" => "foo bar" }
+
+    query = HotelsPro::Query.new(params)
+    query.to_s.should == "?a=foo%20bar"
+  end
 end
