@@ -5,11 +5,11 @@ describe HotelsPro::Api::Methods::CancelHotelBooking do
 
   it "should build correct api params hash" do
     method = HotelsPro::Api::Methods::CancelHotelBooking.new(
-      :tracking_id => "XI-HE-70838364",
+      :tracking_id => "XI-HE-70838364"
     )
 
     method.to_api_params.should == {
-      "trackingId" => "XI-HE-70838364",
+      "trackingId" => "XI-HE-70838364"
     }
   end
 
@@ -17,7 +17,7 @@ describe HotelsPro::Api::Methods::CancelHotelBooking do
     HotelsPro::Stubs.cancel_hotel_booking.response(fixture('cancel_hotel_booking'))
 
     method = HotelsPro::Api::Methods::CancelHotelBooking.new(
-      :tracking_id => "XI-HE-70838364",
+      :tracking_id => "XI-HE-70838364"
     )
 
     result = method.perform
