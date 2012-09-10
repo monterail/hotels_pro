@@ -39,6 +39,12 @@ module HotelsPro
         stub
       end
 
+      def get_hotel_cancellation_policy(matcher=nil)
+        stub = Stub.new('getHotelCancellationPolicy', matcher)
+        stubs << stub
+        stub
+      end
+
       def match(request)
         stub = stubs.find { |s| s.matches?(request) }
         stub.response if stub
