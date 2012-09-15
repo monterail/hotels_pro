@@ -1,5 +1,7 @@
 # HotelsPro
 
+[![Build Status](https://secure.travis-ci.org/monterail/hotels_pro.png)](http://travis-ci.org/monterail/hotels_pro)
+
 HotelsPro API wrapper
 
 ## Installation
